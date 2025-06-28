@@ -14,7 +14,7 @@ class Education extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'user_id',
+        'resume_id',
         'school_name',
         'degree',
         'field',
@@ -23,8 +23,8 @@ class Education extends Model
         'description',
     ];
 
-    public function user()
+    public function resume()
     {
-        return $this->belongsTo(User::class, 'user_id', 'user_id');
+        return $this->belongsTo(Resume::class, 'resume_id', 'resume_id');
     }
 }

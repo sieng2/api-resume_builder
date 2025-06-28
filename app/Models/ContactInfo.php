@@ -13,7 +13,7 @@ class ContactInfo extends Model
     protected $table = 'contact_info';
 
     protected $fillable = [
-        'user_id',
+        'resume_id',
         'full_name',
         'phone',
         'address',
@@ -22,8 +22,12 @@ class ContactInfo extends Model
 
     public $timestamps = false;
 
-    public function user()
+    public function resume()
     {
-        return $this->belongsTo(User::class, 'user_id', 'user_id');
+        return $this->belongsTo(Resume::class, 'resume_id', 'resume_id');
+    }
+    public function contactInfo()
+    {
+        return $this->hasOne(ContactInfo::class, 'resume_id', 'resume_id');
     }
 }

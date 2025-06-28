@@ -32,6 +32,23 @@ class Resume extends Model
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
+    public function contactInfo()
+    {
+        return $this->hasMany(\App\Models\ContactInfo::class, 'resume_id', 'resume_id');
+    }
+    public function skills()
+    {
+        return $this->hasMany(Skill::class, 'resume_id', 'resume_id');
+    }
+    public function experience()
+    {
+        return $this->hasMany(Experience::class, 'resume_id', 'resume_id');
+    }
+    public function education()
+    {
+        return $this->hasMany(Education::class, 'resume_id', 'resume_id');
+    }
+
     public function template()
     {
         return $this->belongsTo(Template::class, 'template_id', 'template_id');

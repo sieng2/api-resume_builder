@@ -13,15 +13,15 @@ class Skill extends Model
     protected $table = 'skill';
 
     protected $fillable = [
-        'user_id',
+        'resume_id',
         'skill_name',
         'level',
     ];
 
     public $timestamps = false;
 
-    public function user()
+    public function resume()
     {
-        return $this->belongsTo(User::class, 'user_id', 'user_id');
+        return $this->belongsTo(Resume::class, 'resume_id', 'resume_id');
     }
 }

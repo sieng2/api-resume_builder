@@ -13,7 +13,7 @@ class Experience extends Model
     protected $primaryKey = 'exp_id';
 
     protected $fillable = [
-        'user_id',
+        'resume_id',
         'company_name',
         'job_title',
         'start_date',
@@ -23,8 +23,8 @@ class Experience extends Model
 
     public $timestamps = false;
 
-    public function user()
+    public function resume()
     {
-        return $this->belongsTo(User::class, 'user_id', 'user_id');
+        return $this->belongsTo(Resume::class, 'resume_id', 'resume_id');
     }
 }
